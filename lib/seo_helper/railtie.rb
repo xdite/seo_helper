@@ -1,4 +1,5 @@
-require 'rails'
+require 'view_helper'
+require 'controller_helper'
 
 module SeoHelper
   class Railtie < Rails::Railtie
@@ -10,7 +11,7 @@ module SeoHelper
 
     initializer "seo_helper.controller_additions" do
       ActiveSupport.on_load(:action_controller) do
-        include SeoHelper::ControllerHelper
+        include SeoHelper::ControllerAddition
       end
     end
   end
